@@ -1,0 +1,26 @@
+<%+header%>
+<div class="cbi-map">
+  <iframe id="oceditor" style="width: 100%; min-height: 650px; border: none; border-radius: 2px;"></iframe>
+</div>
+<script type="text/javascript">
+  // Construct the URL for the iframe source
+  var baseURL = window.location.protocol + "//" + window.location.host + "/tinyfm/index.php";
+  var params = "?p=" + encodeURIComponent("etc/openclash");
+  var iframeSrc = baseURL + params;
+  
+  // Set the iframe source
+  document.getElementById("oceditor").src = iframeSrc;
+
+  // Log the iframe source to the console for debugging
+  console.log("Iframe src set to: " + iframeSrc);
+
+  // Event listeners for iframe load and error events
+  document.getElementById("oceditor").onload = function() {
+    console.log("Iframe loaded successfully.");
+  };
+
+  document.getElementById("oceditor").onerror = function() {
+    console.log("Error loading iframe.");
+  };
+</script>
+<%+footer%>
